@@ -10,4 +10,14 @@ When implementing a new feature or fixing a bug, please create a new pull reques
 
 ## First setup
 
+Build the complete docker
+```docker compose build```
+
+To build and run the app
+```docker compose up```
+
+To run the app using the container use
+```docker compose start```
+
+
 **[TODO 05/01/2018 @vanessa-cooper]:** _It's been a while since anyone ran a fresh copy of this repo. I think it's worth documenting the steps needed to install and run the repo on a new machine?_
