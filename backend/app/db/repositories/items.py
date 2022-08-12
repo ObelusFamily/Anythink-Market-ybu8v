@@ -2,6 +2,7 @@ from typing import List, Optional, Sequence, Union
 
 from asyncpg import Connection, Record
 from pypika import Query
+from pypika import functions as fn
 
 from app.db.errors import EntityDoesNotExist
 from app.db.queries.queries import queries
@@ -160,12 +161,12 @@ class ItemsRepository(BaseRepository):  # noqa: WPS214
             
             
         if title:
-            query_params.append(title)
+            query_params.append(f"%{title}%")
             query_params_count += 1
 
             # fmt: off
             query = query.select(query.star).where(
-                        items.title == Parameter(query_params_count),
+                        items.title.like(Parameter(query_params_count)),
                     )
             # fmt: on
 
